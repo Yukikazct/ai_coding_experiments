@@ -69,8 +69,17 @@ TOOL_REGISTRY: Dict[str, Callable[..., str]] = {
 # Prompt scaffolding
 # ==========================
 
-# TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are an AI assistant with access to the following tool:
+
+Tool name: output_every_func_return_type
+Description: Returns a newline-delimited list of "function_name: return_type" for each top-level function in a Python file.
+Arguments:
+  - file_path (optional, string): Path to the Python file to analyze. If not provided, defaults to the current file.
+
+When the user says "Call the tool now.", you MUST respond with ONLY a single JSON object (no other text) in this exact format:
+{"tool": "<tool_name>", "args": {"<arg_name>": "<arg_value>"}}
+
+Do not wrap the JSON in markdown code fences. Output the raw JSON and nothing else."""
 
 
 def resolve_path(p: str) -> str:

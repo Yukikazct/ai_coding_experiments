@@ -14,8 +14,19 @@ the function is_valid_password(password: str) -> bool. No prose or comments.
 Keep the implementation minimal.
 """
 
-# TODO: Fill this in!
-YOUR_REFLEXION_PROMPT = ""
+YOUR_REFLEXION_PROMPT = """You are an expert code debugger. Your task is to fix a Python function `is_valid_password(password: str) -> bool` based on test failure feedback.
+
+Rules for a valid password:
+- At least 8 characters long
+- Contains at least one uppercase letter (A-Z)
+- Contains at least one lowercase letter (a-z)
+- Contains at least one digit (0-9)
+- Contains at least one special character from: !@#$%^&*()-_
+- Should NOT contain whitespace
+
+Analyze the previous code carefully. For each failing test case, understand WHY the function returned the wrong result, then rewrite the function to fix ALL issues.
+
+Output ONLY a single fenced Python code block (```python ... ```) with the corrected function. No prose, no explanation."""
 
 
 # Ground-truth test suite used to evaluate generated code
@@ -92,11 +103,22 @@ def generate_initial_function(system_prompt: str) -> str:
 
 
 def your_build_reflexion_context(prev_code: str, failures: List[str]) -> str:
-    """TODO: Build the user message for the reflexion step using prev_code and failures.
+    """Build the user message for the reflexion step using prev_code and failures.
 
     Return a string that will be sent as the user content alongside the reflexion system prompt.
     """
-    return ""
+    failure_text = "\n".join(f"- {f}" for f in failures)
+    return f"""The following code was tested and FAILED on some test cases. Please fix it.
+
+PREVIOUS CODE:
+```python
+{prev_code}
+```
+
+TEST FAILURES:
+{failure_text}
+
+Please analyze each failure, identify the root cause, and output a corrected version of the `is_valid_password` function that passes ALL tests. Output only the fixed Python code block."""
 
 
 def apply_reflexion(

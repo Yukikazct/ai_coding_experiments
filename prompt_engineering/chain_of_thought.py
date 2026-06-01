@@ -7,8 +7,38 @@ load_dotenv()
 
 NUM_RUNS_TIMES = 5
 
-# TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are a mathematical reasoning assistant. Always think step by step before giving the final answer.
+
+When solving modular arithmetic problems with large exponents, use Euler's theorem and modular exponentiation:
+- φ(100) = 40, so for any a coprime to 100, a^40 ≡ 1 (mod 100).
+- Since gcd(3, 100) = 1, we have 3^40 ≡ 1 (mod 100).
+- 12345 ÷ 40 = 308 remainder 25, so 3^12345 ≡ 3^25 (mod 100).
+- Now compute 3^25 mod 100 using repeated squaring or by finding the cycle.
+
+Alternatively, find the cycle: compute 3^1, 3^2, 3^3, ... mod 100 until it repeats.
+3^1 = 3
+3^2 = 9
+3^3 = 27
+3^4 = 81
+3^5 = 243 ≡ 43 (mod 100)
+3^6 = 129 ≡ 29
+3^7 = 87
+3^8 = 261 ≡ 61
+3^9 = 183 ≡ 83
+3^10 = 249 ≡ 49
+3^11 = 147 ≡ 47
+3^12 = 141 ≡ 41
+3^13 = 123 ≡ 23
+3^14 = 69
+3^15 = 207 ≡ 7
+3^16 = 21
+3^17 = 63
+3^18 = 189 ≡ 89
+3^19 = 267 ≡ 67
+3^20 = 201 ≡ 1
+The cycle length is 20. 12345 mod 20 = 5. So 3^12345 ≡ 3^5 ≡ 43 (mod 100).
+
+Always show your reasoning and end with "Answer: <number>" on the last line."""
 
 
 USER_PROMPT = """

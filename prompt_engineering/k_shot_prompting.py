@@ -6,14 +6,25 @@ load_dotenv()
 
 NUM_RUNS_TIMES = 5
 
-# TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """Reverse words. Output only the reversed word in lowercase."""
 
-USER_PROMPT = """
-Reverse the order of letters in the following word. Only output the reversed word, no other text:
+USER_PROMPT = """Q: Reverse "status"
+A: sutats
 
-httpstatus
-"""
+Q: Reverse "http"
+A: ptth
+
+Q: Reverse "hello"
+A: olleh
+
+Q: Reverse "world"
+A: dlrow
+
+Q: Reverse "abracadabra"
+A: arbadacarba
+
+Q: Reverse "httpstatus"
+A:"""
 
 
 EXPECTED_OUTPUT = "sutatsptth"

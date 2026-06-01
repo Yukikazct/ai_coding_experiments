@@ -8,8 +8,14 @@ load_dotenv()
 
 NUM_RUNS_TIMES = 5
 
-# TODO: Fill this in! Try to get as close to 100% correctness across all runs as possible.
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are a careful mathematical reasoning assistant. Always solve word problems step by step:
+1. Identify what the question is asking
+2. List all the given information
+3. Work through the math one step at a time
+4. Double-check your work
+5. Output the final answer on the last line as "Answer: <number>"
+
+Be precise and careful with arithmetic. Visualize the problem when possible."""
 
 USER_PROMPT = """
 Solve this problem, then give the final answer on the last line as "Answer: <number>".

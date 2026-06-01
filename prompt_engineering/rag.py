@@ -36,8 +36,15 @@ QUESTION = (
 )
 
 
-# TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are a precise Python programmer. Generate code based ONLY on the provided context documentation.
+Follow the requirements exactly:
+- Import the `requests` library
+- Use the Base URL and endpoint from the context
+- Include the authentication header as documented
+- Handle HTTP errors with raise_for_status()
+- Return only the user's name as a string
+
+Output ONLY a single fenced Python code block (```python ... ```) with no additional explanation."""
 
 
 # For this simple example
@@ -52,11 +59,12 @@ REQUIRED_SNIPPETS = [
 
 
 def YOUR_CONTEXT_PROVIDER(corpus: List[str]) -> List[str]:
-    """TODO: Select and return the relevant subset of documents from CORPUS for this task.
+    """Select and return the relevant subset of documents from CORPUS for this task.
 
-    For example, return [] to simulate missing context, or [corpus[0]] to include the API docs.
+    The corpus contains the API documentation which is exactly what we need to generate the function.
+    Return all relevant documents — in this case, the full corpus containing the API docs.
     """
-    return []
+    return corpus  # Return the full API documentation as context
 
 
 def make_user_prompt(question: str, context_docs: List[str]) -> str:
