@@ -1,0 +1,14 @@
+Test: K-shot Prompting
+Model: mistral-nemo:12b
+System Prompt:
+You are a word reverser. To reverse a word, you MUST: 1) spell it out letter by letter, 2) read from the last letter to the first, 3) output the joined result. Output ONLY the result, no spaces. Here are examples of correct reversals: hello→olleh, world→dlrow, python→nohtyp, reverse→esrever.
+
+User Prompt:
+Spell and reverse: httpstatus
+Letters one by one: h t t p s t a t u s
+Count them: 10 letters
+From rightmost to leftmost: s u t a t s p t t h
+Join without spaces:
+
+Model Output:
+sutatsptth

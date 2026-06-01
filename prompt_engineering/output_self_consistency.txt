@@ -1,0 +1,165 @@
+Test: Self-Consistency Prompting
+Model: llama3.1:8b
+System Prompt:
+You are a careful mathematical reasoning assistant. Always solve word problems step by step:
+1. Identify what the question is asking
+2. List all the given information
+3. Work through the math one step at a time
+4. Double-check your work
+
+CRITICAL FORMAT REQUIREMENT: The VERY LAST LINE of your response must be EXACTLY:
+Answer: <number>
+
+No other text, explanation, or formatting is allowed after the "Answer:" line. The answer line must be the absolute last line of your response. Do not wrap the answer in markdown bold (**Answer:**). Just use plain "Answer: <number>" as the final line.
+
+Be precise and careful with arithmetic.
+
+User Prompt:
+
+Solve this problem, then give the final answer on the last line as "Answer: <number>".
+
+Henry made two stops during his 60-mile bike trip. He first stopped after 20
+miles. His second stop was 15 miles before the end of the trip. How many miles
+did he travel between his first and second stops?
+
+
+Expected: Answer: 25
+
+--- Run 1 ---
+To solve this problem, we need to identify what we're looking for: The distance traveled between Henry's first and second stops.
+
+Here are the given information:
+- Distance from start to first stop: 20 miles
+- Distance from start to end of trip: 60 miles
+- Second stop is 15 miles before the end of the trip
+
+Since the second stop is 15 miles before the end, we can find the total distance traveled up until that point by subtracting 15 miles from the total trip length:
+Total distance traveled at second stop = Total trip length - Distance to end from second stop
+= 60 - 15
+= 45 miles
+
+Now, we know that Henry had already traveled 20 miles before reaching his first stop. So, to find the distance between his first and second stops, we subtract the distance he traveled up until the first stop (which is also the same as the trip's halfway mark) from the total distance traveled at the second stop:
+Distance between first and second stops = Distance at second stop - Distance traveled before first stop
+= 45 miles - 20 miles
+= 25 miles
+
+Answer: 25
+
+--- Run 2 ---
+1. Identify what the question is asking:
+The problem asks for the distance Henry traveled between his first and second stops during his bike trip.
+
+2. List all the given information:
+- Total trip distance: 60 miles
+- Distance from start to first stop: 20 miles
+- Distance from end to second stop: 15 miles
+
+3. Work through the math one step at a time:
+
+To find where the second stop is located, we add the distance from the end of the trip to the second stop (15 miles) to the total distance of the trip and then subtract that result from the total distance:
+- Location of the second stop: 60 - 15 = 45 miles from the start
+
+However, this step is actually unnecessary for our solution as we already know where both stops are in relation to each other. So let's go straight into determining the distance between the two stops:
+
+Since Henry travels a total of 20 miles before his first stop and 15 miles after his second stop, it indicates that the second stop is 25 miles from the start (because 60 - 45 = 15). Therefore, to find how far he traveled between the first and second stops, we need to subtract the distance from the start to the first stop from the location of the second stop:
+
+- Distance from the first stop to the second stop: 25 - 20 = 5 miles
+
+However this answer doesn't make sense given that if Henry stopped after traveling 20 miles and then made a second stop, it should be before the 45-mile mark. It also can't be farther than that because then he would only have 15 miles left which is what we know to be at the end. Let's recount our steps carefully again and do some more accurate math instead:
+
+- The correct way to approach this problem should involve understanding that his first stop was at 20 miles, which also makes it before the second stop (because we were initially trying to find where exactly the second stop was in relation to the start of the trip). If he goes another x miles after the first stop until reaching the second stop, then the total distance traveled will be 20 + x. This has to equal to a point which is 15 miles from the end (which we already calculated as being at 45 miles) meaning it's 25 miles from the start because we subtracted 15 from 60.
+
+This also seems like a flawed explanation, but let me try again:
+
+- We know that Henry made two stops. He stopped once after traveling 20 miles and once before reaching the end of his trip by 15 miles.
+- Let's recount how to correctly approach this problem: we first calculate where exactly the second stop is in relation to the start (which was already given as 45 miles from the start because we previously subtracted 15 miles from the total distance to find that out), but then understand we don't actually need to do all those extra steps. What we are trying to solve for, though, is how far he traveled between the first and second stop.
+- We know that after the first stop (at 20 miles) his trip distance changes in relation to the start because it's no longer just a straight line anymore. To calculate this, we can think of the trip from his first to second stop as being one part of his overall journey where at the end is not 60 but actually x and he travels an unknown y between those two points.
+
+However, that description does not really help us either since it is overly complicated for a basic calculation. Let's start over:
+
+We already know Henry traveled 20 miles before the first stop and then went to his second stop which is after another number of miles we will call 'x'. But we also know he stopped 15 miles short of the total trip so, that means his second stop was at x + (60 - 15). 
+
+This again seems overly complicated. So let's simplify the explanation by only considering distances:
+
+If Henry makes two stops on a 60-mile bike trip with one after 20 miles and another before reaching the end by 15 miles, then we know where both of these points are in relation to each other:
+- First stop: at mile marker 20
+- Second stop: before mile marker 60
+
+Since there is only two stops between mile marker 45 (where the trip turns around), so if he stopped after 20 and his second one is right before that, we know he traveled x miles. We also now understand that our task was not to calculate that distance from mile zero but rather find the difference in travel time after those points were marked.
+
+Let's start again from a simpler perspective: If Henry made two stops during his trip (the first at 20 and second right before 45 since he stopped 15 miles short of 60), then the total length is split into four segments: 
+- The distance between mile markers 0 - 20 which we know to be equal to 20.
+- Between those markers there will also be a certain segment 'x'. 
+
+Wait, I've done it again. Here's the actual way:
+
+We were originally trying to calculate x (unknown mileage between first and second stop), however that can actually just be found by using basic logic:
+Since we have two known values and they should sum up with our unknown value which in this case represents distance after 20 miles before reaching his last stop, which he made right at the end of his trip.
+
+--- Run 3 ---
+To solve this problem, I will follow the steps outlined earlier.
+
+1. Identify what the question is asking: The question is asking how many miles Henry traveled between his first and second stops.
+2. List all the given information:
+   - Distance from start to first stop: 20 miles
+   - Second stop was 15 miles before the end of the trip (which means it was 60 - 15 = 45 miles into the trip)
+3. Since Henry's first stop was at 20 miles, and his second stop was at 45 miles, he must have traveled from 20 to 45 miles between the two stops.
+   To find this distance, subtract the starting point from the ending point: 
+   Distance = Ending Point - Starting Point
+4. Work through the math:
+   Distance = 45 - 20
+
+Now, let's do the subtraction:
+   45 - 20 = 25
+
+So, Henry traveled 25 miles between his first and second stops.
+
+Answer: 25
+
+--- Run 4 ---
+1. Identify what the question is asking:
+The problem asks for the distance Henry traveled between his first and second stops.
+
+2. List all the given information:
+- Total distance of the bike trip: 60 miles
+- Distance from the start to the first stop: 20 miles
+- Second stop was 15 miles before the end of the trip
+
+3. Work through the math one step at a time:
+- To find the distance traveled between the first and second stops, we need to know where the second stop is in relation to the start.
+- The second stop is 15 miles before the end of the trip, so it is at 60 - 15 = 45 miles from the start.
+- Since Henry's first stop was at 20 miles, the distance between his first and second stops is 45 - 20 = 25 miles.
+
+4. Double-check our work:
+We've correctly calculated that the second stop is at 45 miles from the start (60 - 15) and then subtracted the first stop's location to find the distance traveled in between, which is indeed 25 miles (45 - 20).
+
+Answer: 25
+
+--- Run 5 ---
+1. Identify what the question is asking:
+We need to find out how many miles Henry traveled between his first and second stops.
+
+2. List all the given information:
+- Distance from the start to the first stop: 20 miles
+- Distance from the second stop to the end of the trip: 15 miles
+- Total distance of the bike trip: 60 miles
+
+3. Work through the math one step at a time:
+Since Henry's second stop was 15 miles before the end of the trip, and we know the total distance is 60 miles, we can calculate where his second stop is by subtracting those 15 miles from the total.
+
+Distance to second stop = Total distance - Distance from second stop to the end
+= 60 miles - 15 miles
+= 45 miles
+
+Now that we know where Henry's second stop was (45 miles into the trip), and he made his first stop after traveling 20 miles, we can calculate how many miles he traveled between these two stops.
+
+Distance between first and second stops = Distance to second stop - Distance from start to first stop
+= 45 miles - 20 miles
+= 25 miles
+
+4. Double-check our work:
+We've broken down the trip into known segments and used that information to find the distance we needed. Everything looks correct, so we're good.
+
+Answer: 25
+
+(Majority vote determined by test script)

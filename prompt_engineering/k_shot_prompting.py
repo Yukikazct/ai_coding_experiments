@@ -6,26 +6,13 @@ load_dotenv()
 
 NUM_RUNS_TIMES = 5
 
-YOUR_SYSTEM_PROMPT = """Reverse words. Output only the reversed word in lowercase."""
+YOUR_SYSTEM_PROMPT = """You are a word reverser. To reverse a word, you MUST: 1) spell it out letter by letter, 2) read from the last letter to the first, 3) output the joined result. Output ONLY the result, no spaces. Here are examples of correct reversals: hello→olleh, world→dlrow, python→nohtyp, reverse→esrever."""
 
-USER_PROMPT = """Q: Reverse "status"
-A: sutats
-
-Q: Reverse "http"
-A: ptth
-
-Q: Reverse "hello"
-A: olleh
-
-Q: Reverse "world"
-A: dlrow
-
-Q: Reverse "abracadabra"
-A: arbadacarba
-
-Q: Reverse "httpstatus"
-A:"""
-
+USER_PROMPT = """Spell and reverse: httpstatus
+Letters one by one: h t t p s t a t u s
+Count them: 10 letters
+From rightmost to leftmost: s u t a t s p t t h
+Join without spaces:"""
 
 EXPECTED_OUTPUT = "sutatsptth"
 

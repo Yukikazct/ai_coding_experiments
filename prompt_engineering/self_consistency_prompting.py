@@ -13,9 +13,13 @@ YOUR_SYSTEM_PROMPT = """You are a careful mathematical reasoning assistant. Alwa
 2. List all the given information
 3. Work through the math one step at a time
 4. Double-check your work
-5. Output the final answer on the last line as "Answer: <number>"
 
-Be precise and careful with arithmetic. Visualize the problem when possible."""
+CRITICAL FORMAT REQUIREMENT: The VERY LAST LINE of your response must be EXACTLY:
+Answer: <number>
+
+No other text, explanation, or formatting is allowed after the "Answer:" line. The answer line must be the absolute last line of your response. Do not wrap the answer in markdown bold (**Answer:**). Just use plain "Answer: <number>" as the final line.
+
+Be precise and careful with arithmetic."""
 
 USER_PROMPT = """
 Solve this problem, then give the final answer on the last line as "Answer: <number>".
